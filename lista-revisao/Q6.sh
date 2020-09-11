@@ -8,9 +8,10 @@ mkdir -p /bin/${data}
 cp * /bin/${data}
 
 cd /bin
+# -c => cria arquivo .tar
+# -f => nome do arquivo a se colocar
 tar -cf ${data}.tar ./${data}
 
 cp ${data}.tar ..
 rm -rf ./${data}
-
 
