@@ -28,7 +28,7 @@ ls $2 2> /dev/null || exit 1
 ls $3 2> /dev/null || echo “Por favor crie o arquivo ${workdir}/${3}” 2> /dev/null
 ls $3 2> /dev/null || exit 1
 cat $1 $2 $3 2> /dev/null | tr ‘ ‘ ‘\n’ | sort | grep -v “comentario” 2> /dev/null
-
+# não precisa no cat mas... vai quê u.u
 
 # Nenhuma mensagem na tela
 
