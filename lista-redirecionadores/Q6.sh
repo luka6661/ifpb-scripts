@@ -32,4 +32,4 @@ done
 # mas não faz muito sentido pensando em como o código da Q5 foi feito... u.u
 
 
-# em fim, foda-se :)
+# Paz e amor. Coalas são lindos.
