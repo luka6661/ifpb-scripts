@@ -19,11 +19,25 @@ while true;
 do
 	# inteiro aleatório entre 0-9
 	a=$(( ${RANDOM} % 10 ))
-	touch ${a} && echo “$(date +%H:%M) ${a}: criado!” > 1.log || 2> /dev/null
+	touch ${a} 2>> 2.log && echo “$(date +%H:%M) ${a}: criado!” >> 1.log
 
 	sleep 1
 
 	b=$(( ${RANDOM} % 10 ))
-	rm ${b} && echo “$(date +%H:%M) ${b}: removido!” > 1.log || 2> /dev/null
+	rm ${b} 2>> 2.log && echo “$(date +%H:%M) ${b}: removido!” >> 1.log
+done
+
+# todas as saídas no 3.log
+
+while true;
+do
+	# inteiro aleatório entre 0-9
+	a=$(( ${RANDOM} % 10 ))
+	touch ${a} &>> 3.log && echo “$(date +%H:%M) ${a}: criado!” >> 3.log
+
+	sleep 1
+
+	b=$(( ${RANDOM} % 10 ))
+	rm ${b} &>> 3.log && echo “$(date +%H:%M) ${b}: removido!” >> 3.log
 done
 
