@@ -19,3 +19,17 @@ do
 	b=$(( ${RANDOM} % 10 ))
 	rm ${b} 2>> 2.log && echo “$(date +%H:%M) ${b}: removido!” | tr ':' '-' >> 1.log
 done
+
+# Não consigo tratar a saída de erro que sai do comando rm
+
+# Não entendi se era pra tratar a entrada que iria dentro dos arquivos de log ou
+# apenas em uma hipotética saída normal no terminal mesmo. Fiquei confuso.
+
+#... ou outro jeito seria:
+
+./loop.sh |& tr ':' '-'
+
+# mas não faz muito sentido pensando em como o código da Q5 foi feito... u.u
+
+
+# em fim, foda-se :)
