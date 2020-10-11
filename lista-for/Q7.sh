@@ -5,5 +5,12 @@
 # arquivos com o mesmo conteúdo no diretório atual.
 # Caso existam, imprima o nome dos arquivos duplicados.
 
-for file in *; do
+md5sum * | cut -d' ' -f1 > md5files.txt
 
+for line in $(cat md5files.txt); do
+	for another in $(cat md5files.txt); do
+		(( $line == $another ))
+	done
+done
+
+rm md5files.txt
