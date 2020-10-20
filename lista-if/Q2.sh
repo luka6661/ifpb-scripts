@@ -15,5 +15,23 @@
 # Exiba os valores das variáveis a b e c na tela.
 
 
+if [ -z $a ]; then
+	read -p 'Digite o valor da variável a: ' a
+fi
+
+
+if [ -z $b ]; then
+	read -p 'Digite o valor da variável b: ' b
+fi
+
+
+if [ -z $c ]; then
+	read -p 'Digite o valor da variável c: ' c
+fi
+
+
+echo "Variável a: $a"
+echo "Variável b: $b"
+echo "Variável c: $c"
 
 

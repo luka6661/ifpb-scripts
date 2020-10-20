@@ -11,3 +11,7 @@
 # -r = Inverte a ordem
 
 ls -lAtr | tail -1
+
+# O jeito mais rápido e simples que encontrei
+# Não consegui descobrir um jeito de fazer com if/test
+

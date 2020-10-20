@@ -13,7 +13,7 @@ for dir in $(ls); do
 		echo $dir
 	fi
 done
-
+echo '---------------------------------'
 echo 'ARQUIVOS:'
 
 for arq in $(ls); do
@@ -22,11 +22,11 @@ for arq in $(ls); do
 	fi
 done
 
+echo '---------------------------------'
 echo 'LNKS:'
 
-letter='l'
 for link in $(ls -l); do
-	if [[ -L $link ]]; then
+	if [ -L $link ]; then
 		echo $link
 	fi
 done
