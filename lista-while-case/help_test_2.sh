@@ -1,30 +1,5 @@
 #!/bin/bash
 
-#count=0
-
-#while [ $count -le 5 ]; do
-
-
-#	read -p 'Digite uma opção: ' opt
-
-#	case $opt in
-#		"a"|"b") echo "Opção 1" ;;
-#		"c") echo "Opção 3" ;;
-#		"d") echo "Opção 4" ;;
-#		"e") echo "Opção 5" ;;
-#		"f") echo "Opção 6" ;;
-#		"g") echo "Opção 7" ;;
-#		"h") echo "Opção 8" ;;
-#		*) echo "Nenhuma" ;;
-#	esac
-
-#	(( count += 1 ))
-#done
-
-#while read a b; do
-#	echo "$a $b"
-#done < file.txt
-
 while true; do
 	
 	echo "Opções do usuário: 
