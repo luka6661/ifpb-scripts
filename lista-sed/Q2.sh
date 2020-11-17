@@ -12,7 +12,6 @@
 #	123.123.123.1
 
 read -p 'Digite o nome do arquivo: ' arq
-TAB="\t"
 
 cat << EOF > index.html
 <!DOCTYPE html>
