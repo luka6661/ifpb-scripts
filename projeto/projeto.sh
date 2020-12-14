@@ -55,15 +55,15 @@ while true; do
 
 	dir
 	file
+	
 
 	echo "O que iremos fazer ?
-		1) buscar arquivo
-		2) buscar diretório
-		3) listagem detalhada arquivos/diretórios
-		4) preview do arquivo
-		5) entrar em diretório
-		6) voltar diretório
-		7) busca detalhada
+		1) buscar arquivo        2) buscar diretório
+		3) listagem detalhada    4) preview do arquivo
+		5) entrar em diretório   6) voltar diretório
+		7) busca detalhada       8) Criar novo arquivo
+		9) Criar novo diretório  10) Editar arquivo
+		11) Deletar arquivo	 12) Deletar diretório
 		q) Sair
 	"
 
@@ -179,7 +179,64 @@ while true; do
 			done
 			;;
 
-		q) break ;;
+			8) clear
+				read -p 'Digite o nome do arquivo para criação: ' new
+				touch $new && echo "Arquivo $new criado com sucesso!"
+				sleep 4
+				;;
+			
+			9) clear
+				read -p 'Digite o nome do diretório para criação: ' new
+				mkdir $new && echo "Diretório $new criado com sucesso!"
+				sleep 4
+				;;
+
+			10) clear
+				read -p 'Digite o nome do arquivo para edição: ' arq
+				if [ ! -e $arq ]; then
+					echo -en "Aparentemente o arquivo $arq não existe. Gostaria de cria-lo(s/n)? "
+					read input
+					if [ $input == 's' ]; then
+						touch $arq
+					else
+						break
+					fi
+				fi
+
+
+				read -p 'Escolha o editor de preferência(vim/nano): ' edd
+
+				if [ $edd == 'vim' ]; then
+					vim $arq
+				else
+					nano $arq
+				fi
+				;;
+
+
+			11) clear
+				file
+				read -p 'Digite o nome do arquivo que deseja deletar: ' arq
+				rm $arq && echo "Arquivo $arq removido com sucesso! Boa sorte !!!"
+				;;
+
+			12) clear
+				read -p 'Digite o nome do diretório que deseja deletar: ' d
+				rmdir $d && echo "Diretório $d removido com sucesso!" || echo "o diretório não está vazio !"
+				echo -en "QUER MESMO PROSSEGUIR ? DADOS IMPORTANTES PODEM SER DELETADOS !!! (s/n): "
+				read input
+				if [ $input == 's' ]; then
+					rm -rf $d #DEUS LHE PROTEJA
+				else
+					echo 'Seu diretório foi mantido'
+				fi
+				;;
+
+
+
+
+
+			q) break ;;
 	esac
 done
 	
