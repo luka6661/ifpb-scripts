@@ -222,13 +222,19 @@ while true; do
 
 			12) clear
 				read -p 'Digite o nome do diretório que deseja deletar: ' d
-				rmdir $d && echo "Diretório $d removido com sucesso!" || echo "o diretório não está vazio !"
-				echo -en "QUER MESMO PROSSEGUIR ? DADOS IMPORTANTES PODEM SER DELETADOS !!! (s/n): "
-				read input
-				if [ $input == 's' ]; then
-					rm -rf $d #DEUS LHE PROTEJA
-				else
-					echo 'Seu diretório foi mantido'
+				rmdir $d &> /dev/null && echo "Diretório $d removido com sucesso!"
+				if [ $? != 0 ]; then
+					echo 'O diretório não está vazio !'
+					echo -en "QUER MESMO PROSSEGUIR ? DADOS IMPORTANTES PODEM SER DELETADOS !!! (s/n): "
+					read input
+					if [ $input == 's' ]; then
+						rm -rf $d #DEUS LHE PROTEJA
+						echo "Diretório $d removido com sucesso!"
+						sleep 3
+					else
+						echo 'Seu diretório foi mantido'
+						sleep 2
+					fi
 				fi
 				;;
 
