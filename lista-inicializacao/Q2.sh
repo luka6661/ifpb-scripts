@@ -7,5 +7,5 @@
 # Procedimento: mova o script para /etc/init.d/
 # sudo cp Q2.sh /etc/init.d/del_tmp.sh
 
-rm -rf /home/${whoami}/tmp/{*,.*}
+rm -rf /home/${whoami}/tmp/*
 
